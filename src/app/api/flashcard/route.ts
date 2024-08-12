@@ -63,7 +63,7 @@ export async function GET(req: NextRequest) {
       .from(flashcardSchema)
       .limit(10)
       .offset(offset);
-    console.log(response);
+    // console.log(response);
     return NextResponse.json({ data: response });
   } catch (error) {
     if (error instanceof Error) {
