@@ -16,6 +16,7 @@
   width: 100%;
   height: 100%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
   transform-style: preserve-3d;
 }
 
@@ -24,15 +25,20 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background: white;
-  color: #03446a;
+  background: #2d2d2d;
+  color: white;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 1rem;
   backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  font-weight: bold;
 }
 
 .back {
-  background: #03446a;
-  color: white;
+  background: #fff9eb;
+  color: black;
   transform: rotateY(180deg);
 }

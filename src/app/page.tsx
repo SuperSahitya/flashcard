@@ -2,7 +2,7 @@
 import Flashcard from "@/components/Flashcard";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -63,12 +63,25 @@ export default function Home() {
 
   return (
     <main className="flex flex-col bg-primary w-screen min-h-screen justify-center items-center gap-8">
-      <div>
-        <span className="text-4xl font-bold">Flash</span>
-        <span className="text-primary text-4xl font-bold">Cards</span>
+      <div className="absolute bg-primary-red rounded-full w-32 h-32 z-[10] top-16 left-16 blur-[150px]"></div>
+      <div className="flex flex-col justify-center items-center">
+        <div className="flex">
+          <span className="text-4xl font-bold">Flash</span>
+          <span className="text-primary text-4xl font-bold">Cards</span>
+        </div>
+        <div className="font-semibold text-secondary">
+          Your Ultimate Preparation Hub!
+        </div>
       </div>
       <div className="relative w-2 h-2 mt-44">
         <AnimatePresence initial={false} custom={direction}>
+          {status == "pending" && (
+            <div className="flex-col gap-4 w-full flex items-center justify-center">
+              <div className="w-20 h-20 border-4 border-transparent text-blue-400 text-4xl animate-spin flex items-center justify-center border-t-blue-400 rounded-full">
+                <div className="w-16 h-16 border-4 border-transparent text-red-400 text-2xl animate-spin flex items-center justify-center border-t-red-400 rounded-full"></div>
+              </div>
+            </div>
+          )}
           {flashcards[index] && (
             <Flashcard
               question={flashcards[index].question}
@@ -81,23 +94,22 @@ export default function Home() {
           )}
         </AnimatePresence>
       </div>
-      <div className="flex gap-4 mt-28">
+      <div className="flex gap-4 mt-32">
         <button
           onClick={handlePrev}
           disabled={index === 0}
-          className="px-4 py-2 bg-primary-red border-2 border-red-400 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-28 px-4 py-2 font-bold bg-primary-red border-2 border-red-400 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Previous
         </button>
         <button
           onClick={handleNext}
           disabled={index >= flashcards.length - 1}
-          className="px-4 py-2 bg-primary-red border-2 border-red-400 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-28 px-4 py-2 font-bold bg-primary-red border-2 border-red-400 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Next
+          {!isFetchingNextPage ? "Next" : "Loading..."}
         </button>
       </div>
-      {isFetchingNextPage && <div>Loading more...</div>}
     </main>
   );
 }

@@ -3,7 +3,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className="bg-black flex flex-row items-center py-3 px-4 justify-between fixed top-0 left-0 w-screen">
+    <nav className="bg-black flex flex-row items-center py-3 justify-between fixed top-0 left-0 w-screen z-50 sm:px-4 px-2">
       <div>
         <svg
           width="125"
@@ -26,16 +26,16 @@ const Navbar = () => {
           ></path>
         </svg>
       </div>
-      <div className="flex gap-4 justify-center items-center">
+      <div className="flex gap-4 justify-center items-center sm:mr-4">
         <Link
           href="/"
-          className="bg-button-primary rounded-md border-2 border-zinc-500 px-4 py-2"
+          className="bg-button-primary rounded-lg border-2 border-zinc-500 px-3 py-[6px]"
         >
           Home
         </Link>
         <Link
           href="/dashboard"
-          className="bg-primary-red rounded-md border-2 border-red-400 px-4 py-2"
+          className="bg-primary-red rounded-lg border-2 border-red-400 px-3 py-[6px]"
         >
           Dashboard
         </Link>

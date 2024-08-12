@@ -50,7 +50,7 @@ const Flashcard = ({
     >
       <motion.div
         className={styles.content}
-        animate={{ rotateY: flip ? 180 : 0 }}
+        animate={{ rotateY: flip ? 180 : 0, rotateX: flip ? [20, 30, 8] : 5 }}
         transition={{ duration: 0.2, ease: "easeIn" }}
       >
         <div className={styles.front}>{question}</div>
