@@ -31,6 +31,7 @@
   border-radius: 1rem;
   backface-visibility: hidden;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1.5rem;

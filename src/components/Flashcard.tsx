@@ -53,8 +53,26 @@ const Flashcard = ({
         animate={{ rotateY: flip ? 180 : 0, rotateX: flip ? [20, 30, 8] : 5 }}
         transition={{ duration: 0.2, ease: "easeIn" }}
       >
-        <div className={styles.front}>{question}</div>
-        <div className={styles.back}>{answer}</div>
+        <div className={styles.front}>
+          <div>{question}</div>
+          <div className="flex flex-col justify-center items-center gap-2 mt-4">
+            <div className="border-2 border-zinc-500 p-1 rounded-md text-xs text-secondary">
+              {category}
+            </div>
+            <div className="border-2 border-zinc-500 p-1 rounded-md text-xs text-secondary">
+              {difficulty}
+            </div>
+          </div>
+          <div className="text-secondary text-sm absolute bottom-4">
+            Click To Reveal Answer!
+          </div>
+        </div>
+        <div className={styles.back}>
+          <div>{answer}</div>
+          <div className="text-secondary text-sm absolute bottom-4">
+            Click To See Question!
+          </div>
+        </div>
       </motion.div>
     </motion.div>
   );
