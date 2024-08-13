@@ -62,7 +62,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col bg-primary w-screen min-h-screen justify-center items-center gap-8">
+    <main className="flex flex-col bg-primary w-screen min-h-screen justify-center items-center gap-8 text-zinc-50">
       <div className="absolute bg-primary-red rounded-full w-32 h-32 z-[10] top-16 left-16 blur-[150px]"></div>
       <div className="flex flex-col justify-center items-center">
         <div className="flex">
